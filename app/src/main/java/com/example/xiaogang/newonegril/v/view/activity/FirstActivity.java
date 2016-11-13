@@ -17,13 +17,14 @@ import com.example.xiaogang.newonegril.R;
 import java.lang.ref.WeakReference;
 
 public class FirstActivity extends AppCompatActivity {
+
     private SwitchHandler mHandler = new SwitchHandler(Looper.getMainLooper(), this);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mHandler.sendEmptyMessageDelayed(1, 700);
+        mHandler.sendEmptyMessageDelayed(1, 100);
     }
-
 
     class SwitchHandler extends Handler {
         private WeakReference<FirstActivity> mWeakReference;

@@ -23,13 +23,19 @@ import rx.schedulers.Schedulers;
 
 public class GetData {
     private static final String TAG = "GetData";
-    private static GetData instance;
-    public static GetData getInstance(){
-        if (instance == null) {
-            instance = new GetData();
-        }
-        return instance;
+
+    private GetData(){
+
     }
+
+    public static GetData getInstance(){
+        return SingletonHolder.INSTANCE;
+    }
+
+    private static class SingletonHolder{
+        private static final GetData INSTANCE = new GetData();
+    }
+
     public void getmeizidata(Subscriber<List<Gril>> subscriber ,final int page){
         Log.e(TAG,page + "");
         Network.getGankApi()
